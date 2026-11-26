@@ -15,7 +15,9 @@ jobs:
 
       - name: Unzip app package
         run: |
-          if [ -f "on-this-day-android.zip" ]; then
+          if [ -f "on-this-day-android (1).zip" ]; then
+            unzip -o "on-this-day-android (1).zip"
+          elif [ -f "on-this-day-android.zip" ]; then
             unzip -o on-this-day-android.zip
           fi
 
@@ -39,6 +41,9 @@ jobs:
             npx cap add android
           fi
           npx cap sync android
+          if [ -d "android-icon" ]; then
+            cp -rf android-icon/* android/app/src/main/res/
+          fi
 
       - name: Build Debug APK
         run: |
@@ -51,3 +56,4 @@ jobs:
         with:
           name: on-this-day-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+          
