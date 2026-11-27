@@ -15,12 +15,10 @@ jobs:
 
       - name: Unzip app package
         run: |
-          if [ -f "on-this-day-android (3).zip" ]; then
+          if [ -f "on-this-day-android (4).zip" ]; then
+            unzip -o "on-this-day-android (4).zip"
+          elif [ -f "on-this-day-android (3).zip" ]; then
             unzip -o "on-this-day-android (3).zip"
-          elif [ -f "on-this-day-android (2).zip" ]; then
-            unzip -o "on-this-day-android (2).zip"
-          elif [ -f "on-this-day-android (1).zip" ]; then
-            unzip -o "on-this-day-android (1).zip"
           else
             unzip -o on-this-day-android.zip
           fi
